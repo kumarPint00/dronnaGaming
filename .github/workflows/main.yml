@@ -1,0 +1,35 @@
+name: Deploy Node.js App to VPS
+
+on:
+  push:
+    branches:
+      - main
+      - '**'  # Matches all other branches
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Deploy to Production Server if pushing to 'main' branch
+      - name: Deploy to Production Server
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@master
+        with:
+          host: 178.16.137.59
+          username: root
+          password: Salem@6698
+          port: 22
+          script: |
+            cd ~/dronnaGaming
+            git pull
+            export NODE_PATH=/etc/nodejs/current
+            export PATH=$NODE_PATH/bin:$PATH
+            export DANGEROUSLY_DISABLE_HOST_CHECK=true
+
+            cd portal
+            npm install -f
+            pm2 restart gaming
