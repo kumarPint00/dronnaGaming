@@ -23,6 +23,8 @@ const useStyles = makeStyles(() => ({
     borderRadius: '12px',
     position: 'relative',
     overflow: 'hidden',
+    margin:'20px auto'
+
   },
   cardContainer: {
     display: 'flex',

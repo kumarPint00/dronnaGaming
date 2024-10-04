@@ -30,6 +30,8 @@ const useStyles = makeStyles(() => ({
     padding: '40px 20px',
     color: '#fff',
     borderRadius: '12px',
+    margin:'20px auto'
+
   },
   header: {
     textAlign: 'center',
@@ -85,7 +87,7 @@ const BettingActionTable: React.FC = () => {
 
         return updatedData;
       });
-    }, 2000); // Update every 2 seconds
+    }, 5000); // Update every 2 seconds
 
     return () => clearInterval(interval);
   }, [view]);

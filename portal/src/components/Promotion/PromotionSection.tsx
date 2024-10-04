@@ -40,6 +40,8 @@ const useStyles = makeStyles(() => ({
     padding: '40px 20px',
     color: '#fff',
     borderRadius: '12px',
+    margin:'20px auto'
+
   },
   leftPanel: {
     width: '300px',

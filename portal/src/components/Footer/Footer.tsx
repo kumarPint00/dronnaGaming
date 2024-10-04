@@ -60,7 +60,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <Box textAlign="center" sx={{ padding: '20px 0' }}>
-        <Typography variant="body2">© 2024 Stake.com | All Rights Reserved.</Typography>
+        <Typography variant="body2">© 2024 DronnaGames.com | All Rights Reserved.</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
           <LanguageIcon />
           <Select

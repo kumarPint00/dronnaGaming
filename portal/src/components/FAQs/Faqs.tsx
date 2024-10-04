@@ -47,6 +47,8 @@ const useStyles = makeStyles(() => ({
     padding: '40px',
     color: '#fff',
     borderRadius: '12px',
+    margin:'20px auto'
+
   },
   leftSection: {
     maxWidth: '300px',

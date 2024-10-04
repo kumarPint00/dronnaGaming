@@ -17,7 +17,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <NavbarWrapper />
 
       {/* Main container for sidebar and page content */}
-      <div style={{ display: 'flex', marginTop: '64px' }}>
+      <div style={{ display: 'flex', marginTop: '64px' }}>  
         {/* Sidebar on the left */}
         <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
         

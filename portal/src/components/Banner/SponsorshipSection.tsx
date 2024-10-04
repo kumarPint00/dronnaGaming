@@ -19,6 +19,8 @@ const useStyles = makeStyles(() => ({
     borderRadius: '12px',
     color: '#fff',
     textAlign: 'center',
+    margin:'20px auto'
+
   },
   title: {
     fontSize: '36px',

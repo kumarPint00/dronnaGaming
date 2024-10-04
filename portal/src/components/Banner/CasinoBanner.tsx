@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     color: '#fff',
+    margin:'20px auto'
   },
   content: {
     display: 'flex',

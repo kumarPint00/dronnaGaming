@@ -19,6 +19,8 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#0d1b2a',
     padding: '40px 20px',
     color: '#fff',
+    margin:'20px auto'
+
   },
   leftContent: {
     flex: 1,
