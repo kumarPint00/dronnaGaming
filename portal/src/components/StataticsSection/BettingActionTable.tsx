@@ -19,7 +19,7 @@ import { makeStyles } from '@mui/styles';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // Dummy JSON data for casino and sports betting actions
-const casinoGames = ['Dronna Games Exclusive Blackjack', 'Limbo', 'Plinko', 'Slushie Party Enhanced'];
+const casinoGames = ['UP365 Games Exclusive Blackjack', 'Limbo', 'Plinko', 'Slushie Party Enhanced'];
 const sportsGames = ['Football - Premier League', 'Basketball - NBA', 'Tennis - Wimbledon', 'Baseball - MLB'];
 const users = ['User1', 'User2', 'Hidden', 'User3', 'User4'];
 const times = ['2:51 PM', '3:05 PM', '3:10 PM', '3:15 PM', '3:20 PM', '3:30 PM'];

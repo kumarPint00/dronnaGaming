@@ -73,15 +73,15 @@ export default async function Home() {
           imageSrc="banner.webp"
         />
         <VipSection
-          title="Wager more and see your rewards grow as a Dronna Games VIP"
-          subTitle="Step into a world of unique benefits, personalized service, and exclusive bonuses, only as a Dronna Games VIP."
+          title="Wager more and see your rewards grow as a UP365 Games VIP"
+          subTitle="Step into a world of unique benefits, personalized service, and exclusive bonuses, only as a UP365 Games VIP."
           buttonText="Become a VIP"
           buttonAction={handleButtonClick}
           features={[
             { icon: <EmojiEvents />, title: 'Bonuses every week', description: 'Every week of each month, you’ll be rewarded with a bonus based on your recent games.' },
             { icon: <Person />, title: 'Your Own VIP Host', description: 'Enjoy exclusive access to a dedicated VIP Host who will support and cater to your betting needs.' },
             { icon: <TrendingUp />, title: 'Level Up Payouts', description: 'Get paid each time you reach a new level. The higher you go, the better the level-ups get.' },
-            { icon: <Replay />, title: 'Recent Play Bonuses', description: 'Dronna Games offers money back on losses every time you level up.' },
+            { icon: <Replay />, title: 'Recent Play Bonuses', description: 'UP365 Games offers money back on losses every time you level up.' },
           ]}
         />
         <SponsorshipSection />

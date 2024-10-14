@@ -90,7 +90,7 @@ const HelpChatComponent: React.FC = () => {
     <Box className={classes.chatContainer}>
       {/* Header */}
       <Box className={classes.header}>
-        <Typography className={classes.GamesLogo}>Dronna</Typography>
+        <Typography className={classes.GamesLogo}>UP365</Typography>
         <Box display="flex" alignItems="center">
           <LanguageIcon style={{ color: '#fff', marginRight: '5px' }} />
           <Typography variant="body2" style={{ color: '#fff' }}>

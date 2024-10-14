@@ -41,7 +41,7 @@ interface SidebarProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   drawerPaper: {
-    backgroundColor: '#102839',
+    backgroundColor: '#0d2536',
     color: '#142fdd',
     width: (props: { isOpen: boolean }) => (props.isOpen ? 240 : 60),
     transition: 'width 0.3s',
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   listItem: {
     '&:hover': {
-      backgroundColor: '#1f3b4d',
+      backgroundColor: '#062d45',
     },
   },
   listItemIcon: {
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#cedae3',
+    backgroundColor: '#2284cf',
     zIndex: 1300,
   },
   hiddenBottomNavigation: {

@@ -115,8 +115,8 @@ const SponsorshipSection: React.FC = () => {
         <Grid item xs={12} md={4}>
           <SponsorCard
             imageSrc="/banner.webp"
-            title="Dronna Games F1 Team Kick Sauber"
-            description="Dronna Games F1 Team Kick Sauber is a globally recognised motorsport team..."
+            title="UP365 Games F1 Team Kick Sauber"
+            description="UP365 Games F1 Team Kick Sauber is a globally recognised motorsport team..."
             buttonText="Learn more"
           />
         </Grid>

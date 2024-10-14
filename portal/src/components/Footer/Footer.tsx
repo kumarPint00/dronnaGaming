@@ -52,7 +52,7 @@ const Footer = () => {
       {/* Middle Section - Logos */}
       <Grid container justifyContent="center" sx={{ paddingBottom: '20px' }}>
         {/* Add logo images here */}
-        <Image src="/DronnaLogo.webp" alt="Logo" width={100} height={100} style={{ margin: '0 15px' }} />
+        <Image src="/UP365Logo.webp" alt="Logo" width={100} height={100} style={{ margin: '0 15px' }} />
         {/* Repeat the above img tag for more logos */}
       </Grid>
 
@@ -60,7 +60,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <Box textAlign="center" sx={{ padding: '20px 0' }}>
-        <Typography variant="body2">© 2024 DronnaGames.com | All Rights Reserved.</Typography>
+        <Typography variant="body2">© 2024 UP365GAMING.com | All Rights Reserved.</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
           <LanguageIcon />
           <Select

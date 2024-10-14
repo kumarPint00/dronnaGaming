@@ -31,6 +31,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             width: '100%',
             height: '100vh',
             overflowY: 'auto',
+            background: 'darkslategray',
           }}
         >
           {children}

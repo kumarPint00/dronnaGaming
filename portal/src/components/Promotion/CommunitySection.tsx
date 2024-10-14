@@ -11,7 +11,7 @@ const images = [
   { id: 2, src: 'banner.webp', alt: 'banner2' },
   { id: 3, src: 'banner.webp', alt: 'banner3' },
   { id: 5, src: 'banner.webp', alt: 'banner4' },
-  { id: 4, src: 'DronnaLogo.webp', alt: 'Dronna Logo' }, // Center logo
+  { id: 4, src: 'UP365Logo.webp', alt: 'UP365 Logo' }, // Center logo
   { id: 6, src: 'banner.webp', alt: 'banner5' },
   { id: 7, src: 'banner.webp', alt: 'banner6' },
   { id: 8, src: 'banner.webp', alt: 'banner7' },

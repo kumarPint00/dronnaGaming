@@ -9,20 +9,20 @@ import { makeStyles } from '@mui/styles';
 // Sample FAQ data
 const faqs = [
   {
-    question: 'Who is Dronna Games?',
-    answer: `Leading the online gambling industry since 2017, Dronna Games.com offers a wide variety of online casino and sports betting options, operating globally in 15 different languages. With a reputable and secure platform, Dronna Games Casino is home to worldwide local currencies and crypto betting options for online slot games, Dronna Games Originals and live casino games. Dronna Games Sportsbook offers unbeatable odds on all major sporting events including a range of eSport leagues. We host regular bet bonuses and promotions and offer an exclusive VIP Club experience - all with a simple-to-use deposit process on our licensed platform.`,
+    question: 'Who is UP365 Games?',
+    answer: `Leading the online gambling industry since 2017, UP365 Games.com offers a wide variety of online casino and sports betting options, operating globally in 15 different languages. With a reputable and secure platform, UP365 Games Casino is home to worldwide local currencies and crypto betting options for online slot games, UP365 Games Originals and live casino games. UP365 Games Sportsbook offers unbeatable odds on all major sporting events including a range of eSport leagues. We host regular bet bonuses and promotions and offer an exclusive VIP Club experience - all with a simple-to-use deposit process on our licensed platform.`,
   },
   {
-    question: 'Is Dronna Games licensed?',
-    answer: 'Yes, Dronna Games is licensed and regulated in multiple jurisdictions worldwide.',
+    question: 'Is UP365 Games licensed?',
+    answer: 'Yes, UP365 Games is licensed and regulated in multiple jurisdictions worldwide.',
   },
   {
-    question: 'Is betting on Dronna Games safe?',
-    answer: 'Yes, Dronna Games uses industry-leading security protocols to ensure the safety of your bets and personal information.',
+    question: 'Is betting on UP365 Games safe?',
+    answer: 'Yes, UP365 Games uses industry-leading security protocols to ensure the safety of your bets and personal information.',
   },
   {
     question: 'What currencies can I bet with?',
-    answer: 'Dronna Games supports a wide range of cryptocurrencies and local currencies for betting.',
+    answer: 'UP365 Games supports a wide range of cryptocurrencies and local currencies for betting.',
   },
   {
     question: 'What types of casino games can I play?',
@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     question: 'What sports can I bet on?',
-    answer: 'Dronna Games offers betting on a wide range of sports including football, basketball, tennis, eSports, and more.',
+    answer: 'UP365 Games offers betting on a wide range of sports including football, basketball, tennis, eSports, and more.',
   },
   {
     question: 'How do I watch live streams?',
-    answer: 'You can watch live streams directly on the Dronna Games platform under the "Live Betting" section.',
+    answer: 'You can watch live streams directly on the UP365 Games platform under the "Live Betting" section.',
   },
 ];
 
