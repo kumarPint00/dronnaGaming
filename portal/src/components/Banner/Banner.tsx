@@ -7,23 +7,24 @@ import AppleIcon from '@mui/icons-material/Apple';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid2'
+import theme from '@/theme/theme';
 
-const useStyles = makeStyles((theme:Theme) => ({
+const useStyles = makeStyles((isMobile) => ({
   bannerContainer: {
     display: 'flex',
-    flexDirection: (props) => (props?.isMobile ? 'column' : 'row'),
+    flexDirection: (isMobile ? 'column' : 'row'),
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#102839',
     color: '#ffffff',
-    padding: (props) => (props?.isMobile ? '20px' : '40px'),
+    padding: (isMobile ? '20px' : '40px'),
     borderRadius: '8px',
     marginTop: '20px',
     marginBottom: '20px',
   },
   leftSection: {
-    maxWidth: (props) => (props?.isMobile ? '100%' : '50%'),
-    textAlign: (props) => (props?.isMobile ? 'center' : 'left'),
+    maxWidth: (isMobile ? '100%' : '50%'),
+    textAlign: (isMobile ? 'center' : 'left'),
   },
   heading: {
     fontWeight: 'bold',
@@ -38,12 +39,12 @@ const useStyles = makeStyles((theme:Theme) => ({
   socialButtonsContainer: {
     display: 'flex',
     gap: theme.spacing(2),
-    justifyContent: (props) => (props?.isMobile ? 'center' : 'flex-start'),
+    justifyContent: (isMobile ? 'center' : 'flex-start'),
   },
   promotionalImage: {
-    width: (props) => (props?.isMobile ? '100%' : '40%'),
+    width: (isMobile ? '100%' : '40%'),
     borderRadius: '8px',
-    marginTop: (props?) => (props?.isMobile ? '20px' : 0),
+    marginTop: (isMobile ? '20px' : 0),
   },
   facebookButton: {
     backgroundColor: '#3b5998',
@@ -69,7 +70,7 @@ const Banner = () => {
     >
       {/* Left Section (Text and Buttons) */}
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid size={6}>
           <Box className={classes.leftSection}>
             <Typography variant="h3" className={classes.heading}>
               An unrivalled Online Casino & Sportsbook
@@ -96,18 +97,18 @@ const Banner = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Box className={classes.promotionalImage}>
+        <Grid size={6}>
           <Box
         component="img"
         src="/banner.webp" // Replace with the path to your image
         alt="Promotional"
         sx={{
-          width: '40%',
+          width: '100%',
           borderRadius: '8px',
         }}
       />
-            </Box></Grid>
+            
+            </Grid>
       </Grid>
     
 

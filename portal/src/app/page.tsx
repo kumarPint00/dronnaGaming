@@ -13,8 +13,9 @@ import dynamic from 'next/dynamic';
 import Footer from "@/components/Footer/Footer";
 import React from 'react';
 import GameSelection from "@/components/Banner/GameSelection";
-import LiveSportsCard from "@/components/Banner/LiveSportsCard";
-import LiveSportsSection from "@/components/Banner/LiveSportSelection";
+import LiveSportsCard from "@/components/Banner/LiveSports/LiveSportsCard";
+import LiveSportsSection from "@/components/Banner/LiveSports/LiveSportSelection";
+import LotteryDrawSection from "@/components/Banner/Lottery/LotterySelection";
 
 // Dynamic imports
 const SponsorshipSection = dynamic(() => import('@/components/Banner/SponsorshipSection'), { ssr: false });
@@ -73,7 +74,7 @@ export default async function Home() {
             { icon: <CasinoIcon />, label: 'Live Casino' },
             { icon: <TableChartIcon />, label: 'Table Games' },
           ]}
-          imageSrc="banner.webp"
+          imageSrc="games.webp"
         />
         <VipSection
           title="Wager more and see your rewards grow as a UP365 Games VIP"
@@ -89,6 +90,7 @@ export default async function Home() {
         />
             <ScrollingLogos />  
             <LiveSportsSection/>
+            <LotteryDrawSection/>
         <SponsorshipSection />
         <HelpSection />
         <BettingActionTable />

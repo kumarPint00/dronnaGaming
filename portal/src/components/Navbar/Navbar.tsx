@@ -57,9 +57,9 @@ const Navbar: FC<NavbarProps> = () => {
 
 
   return (
-    <AppBar sx={{ backgroundColor: '#102839', padding: '0 250px' }}>
+    <AppBar sx={{ backgroundColor: '#102839', padding: '0 50px', zIndex: 1}}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, paddingLeft: '200px'}}>
           UP365GAMING
         </Typography>
 

@@ -21,7 +21,7 @@ export default function page({}: Props) {
       {/* <BallGame/> */}
       {/* <WheelGame/> */}
       {/* <Roulette/> */}
-    <Box sx={{
+    {/* <Box sx={{
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'row',
@@ -29,7 +29,7 @@ export default function page({}: Props) {
     }}>
     <Table/>
     <Wheel/>
-    </Box>
+    </Box> */}
     </div>
   )
 }

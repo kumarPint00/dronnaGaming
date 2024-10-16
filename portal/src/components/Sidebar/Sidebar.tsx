@@ -80,6 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         variant="permanent"
         open={!isMobile || isOpen}
         PaperProps={{ component: DrawerPaper, isOpen }}
+      
       >
         <MenuButton onClick={toggleSidebar} isOpen={isOpen}>
           <MenuIcon />

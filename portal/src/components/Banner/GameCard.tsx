@@ -1,4 +1,3 @@
-// GameCard.tsx
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
@@ -15,7 +14,9 @@ const GameCard: React.FC<GameCardProps> = ({ title, description, iconSrc, backgr
       sx={{
         width: { xs: '100%', sm: '300px' },
         height: '180px',
-        background: background,
+        backgroundImage: `url(${iconSrc})`, // Set the image as background
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         borderRadius: '16px',
         padding: '16px',
         display: 'flex',
@@ -27,17 +28,17 @@ const GameCard: React.FC<GameCardProps> = ({ title, description, iconSrc, backgr
           transform: 'scale(1.05)',
           boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.3)',
         },
+        color: '#fff', // Text color
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <img src={iconSrc} alt={`${title} icon`} style={{ height: '32px', width: '32px' }} />
-        <Typography variant="h6" sx={{ color: '#fff', fontWeight: 'bold' }}>
+      <Box sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '8px', borderRadius: '8px' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
           {title}
         </Typography>
       </Box>
-      <Typography variant="body2" sx={{ color: '#e0e0e0' }}>
-        {description}
-      </Typography>
+      <Box sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '8px', borderRadius: '8px' }}>
+        <Typography variant="body2">{description}</Typography>
+      </Box>
     </Box>
   );
 };

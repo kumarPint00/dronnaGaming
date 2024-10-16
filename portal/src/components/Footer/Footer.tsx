@@ -52,7 +52,7 @@ const Footer = () => {
       {/* Middle Section - Logos */}
       <Grid container justifyContent="center" sx={{ paddingBottom: '20px' }}>
         {/* Add logo images here */}
-        <Image src="/UP365Logo.webp" alt="Logo" width={100} height={100} style={{ margin: '0 15px' }} />
+        <Image src="/up365LogoDark.webp" alt="Logo" width={100} height={100} style={{ margin: '0 15px' }} />
         {/* Repeat the above img tag for more logos */}
       </Grid>
 

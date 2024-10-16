@@ -114,7 +114,7 @@ const SponsorshipSection: React.FC = () => {
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
           <SponsorCard
-            imageSrc="/banner.webp"
+            imageSrc="/racer2.webp"
             title="UP365 Games F1 Team Kick Sauber"
             description="UP365 Games F1 Team Kick Sauber is a globally recognised motorsport team..."
             buttonText="Learn more"
@@ -122,7 +122,7 @@ const SponsorshipSection: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <SponsorCard
-            imageSrc="/banner.webp"
+            imageSrc="/ufc.webp"
             title="UFC"
             description="Our ground-breaking partnership with the UFC provides an unmatched betting experience..."
             buttonText="Learn more"
@@ -130,7 +130,7 @@ const SponsorshipSection: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <SponsorCard
-            imageSrc="/banner.webp"
+            imageSrc="/cricket.webp"
             title="Main Partner"
             description="Main partner sponsorship with global recognition."
           />

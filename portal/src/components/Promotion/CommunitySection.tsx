@@ -7,15 +7,15 @@ import { makeStyles } from '@mui/styles';
 
 // Sample image data for the grid
 const images = [
-  { id: 1, src: 'banner.webp', alt: 'banner1' },
-  { id: 2, src: 'banner.webp', alt: 'banner2' },
-  { id: 3, src: 'banner.webp', alt: 'banner3' },
-  { id: 5, src: 'banner.webp', alt: 'banner4' },
-  { id: 4, src: 'UP365Logo.webp', alt: 'UP365 Logo' }, // Center logo
-  { id: 6, src: 'banner.webp', alt: 'banner5' },
-  { id: 7, src: 'banner.webp', alt: 'banner6' },
-  { id: 8, src: 'banner.webp', alt: 'banner7' },
-  { id: 9, src: 'banner.webp', alt: 'banner7' },
+  { id: 1, src: 'bingo.webp', alt: 'banner1' },
+  { id: 2, src: 'casino.webp', alt: 'banner2' },
+  { id: 3, src: 'lottery.webp', alt: 'banner3' },
+  { id: 5, src: 'plane.webp', alt: 'banner4' },
+  { id: 4, src: 'up365LogoDark.webp', alt: 'UP365 Logo' }, // Center logo
+  { id: 6, src: 'ufc.webp', alt: 'banner5' },
+  { id: 7, src: 'racer2.webp', alt: 'banner6' },
+  { id: 8, src: 'games.webp', alt: 'banner7' },
+  { id: 9, src: 'DronnaLogo.webp', alt: 'banner7' },
 ];
 
 const useStyles = makeStyles(() => ({
