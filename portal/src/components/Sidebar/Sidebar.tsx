@@ -1,16 +1,21 @@
 'use client';
-import React, { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
+import React, { useState, memo } from 'react';
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Collapse,
+  IconButton,
+  Box,
+  BottomNavigation,
+  BottomNavigationAction,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import { styled } from '@mui/system';
 import MenuIcon from '@mui/icons-material/Menu';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import {
   ExpandLess,
   ExpandMore,
@@ -30,56 +35,26 @@ import {
   Games as GamesIcon,
   Chat as ChatIcon,
 } from '@mui/icons-material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { makeStyles } from '@mui/styles';
-import { Theme, useTheme } from '@mui/material';
 
 interface SidebarProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  drawerPaper: {
-    backgroundColor: '#0d2536',
-    color: '#142fdd',
-    width: (props: { isOpen: boolean }) => (props.isOpen ? 240 : 60),
-    transition: 'width 0.3s',
-    overflowX: 'hidden',
-  },
-  menuButton: {
-    position: 'absolute',
-    top: 16,
-    left: (props: { isOpen: boolean }) => (props.isOpen ? 200 : 16),
-    zIndex: 1300,
-    color: '#142fdd',
-  },
-  listItem: {
-    '&:hover': {
-      backgroundColor: '#062d45',
-    },
-  },
-  listItemIcon: {
-    color: '#142fdd',
-  },
-  nestedListItem: {
-    paddingLeft: 4,
-    '&:hover': {
-      backgroundColor: '#1f3b4d',
-    },
-  },
-  bottomNavigation: {
-    display: 'flex',
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#2284cf',
-    zIndex: 1300,
-  },
-  hiddenBottomNavigation: {
-    display: 'none',
-  },
+const DrawerPaper = styled('div')<{ isOpen: boolean }>(({ isOpen }) => ({
+  backgroundColor: '#0d2536',
+  color: '#142fdd',
+  width: isOpen ? 240 : 60,
+  transition: 'width 0.3s',
+  overflowX: 'hidden',
+}));
+
+const MenuButton = styled(IconButton)<{ isOpen: boolean }>(({ isOpen }) => ({
+  position: 'absolute',
+  top: 16,
+  left: isOpen ? 200 : 16,
+  zIndex: 1300,
+  color: '#142fdd',
 }));
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
@@ -90,150 +65,113 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const classes = useStyles({ isOpen });
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleToggle = (toggleFunction: React.Dispatch<React.SetStateAction<boolean>>) => {
     toggleFunction((prev) => !prev);
   };
 
-  const handleClick = (text: string) => {
-    // Placeholder for click handling logic
-    console.log(`${text} clicked`);
-  };
+  const handleClick = (text: string) => console.log(`${text} clicked`);
 
   return (
     <>
       <Drawer
         variant="permanent"
-        open={isMobile ? false : isOpen}
-        classes={{ paper: classes.drawerPaper }}
+        open={!isMobile || isOpen}
+        PaperProps={{ component: DrawerPaper, isOpen }}
       >
-        <IconButton onClick={toggleSidebar} className={classes.menuButton}>
+        <MenuButton onClick={toggleSidebar} isOpen={isOpen}>
           <MenuIcon />
-        </IconButton>
+        </MenuButton>
 
         <Box mt={8}>
           <List>
-            {/* Promotions with dropdown */}
-            <ListItem component="button" onClick={() => handleToggle(setOpenPromotions)} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <PromotionsIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Promotions" />}
-              {isOpen && (openPromotions ? <ExpandLess /> : <ExpandMore />)}
-            </ListItem>
-            <Collapse in={openPromotions && isOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem component="button" onClick={() => handleClick('$75k Weekly Raffle')} className={classes.nestedListItem}>
-                  <ListItemText primary="$75k Weekly Raffle" />
-                </ListItem>
-                <ListItem component="button" onClick={() => handleClick('$100k Race - 24 Hours')} className={classes.nestedListItem}>
-                  <ListItemText primary="$100k Race - 24 Hours" />
-                </ListItem>
-                <ListItem component="button" onClick={() => handleClick('Pragmatic Drops & Wins')} className={classes.nestedListItem}>
-                  <ListItemText primary="Pragmatic Drops & Wins" />
-                </ListItem>
-                <ListItem component="button" onClick={() => handleClick('View All')} className={classes.nestedListItem}>
-                  <ListItemText primary="View All" />
-                </ListItem>
-              </List>
-            </Collapse>
+            <DropdownItem
+              isOpen={isOpen}
+              open={openPromotions}
+              toggle={() => handleToggle(setOpenPromotions)}
+              icon={<PromotionsIcon />}
+              label="Promotions"
+              items={[
+                '$75k Weekly Raffle',
+                '$100k Race - 24 Hours',
+                'Pragmatic Drops & Wins',
+                'View All',
+              ]}
+              onClick={handleClick}
+            />
 
-            {/* Other menu items */}
-            <ListItem component="button" onClick={() => handleClick('Affiliate')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <AffiliateIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Affiliate" />}
-            </ListItem>
+            <SimpleItem
+              isOpen={isOpen}
+              icon={<AffiliateIcon />}
+              label="Affiliate"
+              onClick={() => handleClick('Affiliate')}
+            />
 
-            <ListItem component="button" onClick={() => handleClick('VIP Club')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <VipClubIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="VIP Club" />}
-            </ListItem>
+            <SimpleItem
+              isOpen={isOpen}
+              icon={<VipClubIcon />}
+              label="VIP Club"
+              onClick={() => handleClick('VIP Club')}
+            />
 
-            <ListItem component="button" onClick={() => handleClick('Blog')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <BlogIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Blog" />}
-            </ListItem>
+            <SimpleItem
+              isOpen={isOpen}
+              icon={<BlogIcon />}
+              label="Blog"
+              onClick={() => handleClick('Blog')}
+            />
 
-            <ListItem component="button" onClick={() => handleClick('Forum')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <ForumIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Forum" />}
-            </ListItem>
+            <DropdownItem
+              isOpen={isOpen}
+              open={openSponsorships}
+              toggle={() => handleToggle(setOpenSponsorships)}
+              icon={<SponsorshipsIcon />}
+              label="Sponsorships"
+              items={['Sponsorship Details']}
+              onClick={handleClick}
+            />
 
-            {/* Sponsorships with dropdown */}
-            <ListItem component="button" onClick={() => handleToggle(setOpenSponsorships)} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <SponsorshipsIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Sponsorships" />}
-              {isOpen && (openSponsorships ? <ExpandLess /> : <ExpandMore />)}
-            </ListItem>
-            <Collapse in={openSponsorships && isOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem component="button" onClick={() => handleClick('Sponsorship Details')} className={classes.nestedListItem}>
-                  <ListItemText primary="Sponsorship Details" />
-                </ListItem>
-              </List>
-            </Collapse>
+            <DropdownItem
+              isOpen={isOpen}
+              open={openLanguage}
+              toggle={() => handleToggle(setOpenLanguage)}
+              icon={<LanguageIcon />}
+              label="Language: English"
+              items={['English', 'Spanish', 'French']}
+              onClick={handleClick}
+            />
 
-            {/* Language with dropdown */}
-            <ListItem component="button" onClick={() => handleToggle(setOpenLanguage)} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <LanguageIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Language: English" />}
-              {isOpen && (openLanguage ? <ExpandLess /> : <ExpandMore />)}
-            </ListItem>
-            <Collapse in={openLanguage && isOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem component="button" onClick={() => handleClick('English')} className={classes.nestedListItem}>
-                  <ListItemText primary="English" />
-                </ListItem>
-                <ListItem component="button" onClick={() => handleClick('Spanish')} className={classes.nestedListItem}>
-                  <ListItemText primary="Spanish" />
-                </ListItem>
-                <ListItem component="button" onClick={() => handleClick('French')} className={classes.nestedListItem}>
-                  <ListItemText primary="French" />
-                </ListItem>
-              </List>
-            </Collapse>
+            <SimpleItem
+              isOpen={isOpen}
+              icon={<ResponsibleGamblingIcon />}
+              label="Responsible Gambling"
+              onClick={() => handleClick('Responsible Gambling')}
+            />
 
-            {/* Other fixed menu items */}
-            <ListItem component="button" onClick={() => handleClick('Responsible Gambling')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <ResponsibleGamblingIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Responsible Gambling" />}
-            </ListItem>
-
-            <ListItem component="button" onClick={() => handleClick('Live Support')} className={classes.listItem}>
-              <ListItemIcon className={classes.listItemIcon}>
-                <LiveSupportIcon />
-              </ListItemIcon>
-              {isOpen && <ListItemText primary="Live Support" />}
-            </ListItem>
+            <SimpleItem
+              isOpen={isOpen}
+              icon={<LiveSupportIcon />}
+              label="Live Support"
+              onClick={() => handleClick('Live Support')}
+            />
           </List>
         </Box>
       </Drawer>
 
       <BottomNavigation
         value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
+        onChange={(event, newValue) => setValue(newValue)}
+        style={{
+          display: isMobile ? 'flex' : 'none',
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: '#2284cf',
+          zIndex: 1300,
         }}
-        className={isMobile ? classes.bottomNavigation : classes.hiddenBottomNavigation}
       >
         <BottomNavigationAction label="Browse" icon={<BrowseIcon />} />
         <BottomNavigationAction label="Casino" icon={<CasinoIcon />} />
@@ -245,5 +183,31 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
     </>
   );
 };
+
+const SimpleItem = memo(({ isOpen, icon, label, onClick }: any) => (
+  <ListItem component="button" onClick={onClick}>
+    <ListItemIcon>{icon}</ListItemIcon>
+    {isOpen && <ListItemText primary={label} />}
+  </ListItem>
+));
+
+const DropdownItem = memo(({ isOpen, open, toggle, icon, label, items, onClick }: any) => (
+  <>
+    <ListItem component="button" onClick={toggle}>
+      <ListItemIcon>{icon}</ListItemIcon>
+      {isOpen && <ListItemText primary={label} />}
+      {isOpen && (open ? <ExpandLess /> : <ExpandMore />)}
+    </ListItem>
+    <Collapse in={open && isOpen} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+        {items.map((item: string) => (
+          <ListItem component="button" key={item} onClick={() => onClick(item)}>
+            <ListItemText primary={item} />
+          </ListItem>
+        ))}
+      </List>
+    </Collapse>
+  </>
+));
 
 export default Sidebar;

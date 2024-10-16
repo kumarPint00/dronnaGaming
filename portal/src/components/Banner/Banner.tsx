@@ -6,6 +6,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import { makeStyles } from '@mui/styles';
+import Grid from '@mui/material/Grid2'
 
 const useStyles = makeStyles((theme:Theme) => ({
   bannerContainer: {
@@ -67,34 +68,37 @@ const Banner = () => {
      className={classes.bannerContainer}
     >
       {/* Left Section (Text and Buttons) */}
-      <Box sx={{ maxWidth: '50%' }}>
-        <Typography variant="h3" sx={{ fontWeight: 'bold', marginBottom: '20px' }}>
-          An unrivalled Online Casino & Sportsbook
-        </Typography>
-        <Button variant="contained" color="primary" sx={{ marginBottom: '20px' }}>
-          Sign up
-        </Button>
-        <Typography variant="body1" sx={{ marginBottom: '10px' }}>
-          Or sign up with
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button variant="contained" sx={{ backgroundColor: '#3b5998' }}>
-            <FacebookIcon />
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: '#db4437' }}>
-            <GoogleIcon />
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: '#000000' }}>
-            <AppleIcon />
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: '#6441a5' }}>
-            <SportsEsportsIcon />
-          </Button>
-        </Box>
-      </Box>
-
-      {/* Right Section (Promotional Image) */}
-      <Box
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <Box className={classes.leftSection}>
+            <Typography variant="h3" className={classes.heading}>
+              An unrivalled Online Casino & Sportsbook
+            </Typography>
+            <Button variant="contained" color="primary" className={classes.signUpButton}>
+              Sign up
+            </Button>
+            <Typography variant="body1" className={classes.signUpWithText}>
+              Or sign up with
+            </Typography>
+            <Box className={classes.socialButtonsContainer}>
+              <Button variant="contained" className={classes.facebookButton}>
+                <FacebookIcon />
+              </Button>
+              <Button variant="contained" className={classes.googleButton}>
+                <GoogleIcon />
+              </Button>
+              <Button variant="contained" className={classes.appleButton}>
+                <AppleIcon />
+              </Button>
+              <Button variant="contained" className={classes.twitchButton}>
+                <SportsEsportsIcon />
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box className={classes.promotionalImage}>
+          <Box
         component="img"
         src="/banner.webp" // Replace with the path to your image
         alt="Promotional"
@@ -103,7 +107,12 @@ const Banner = () => {
           borderRadius: '8px',
         }}
       />
+            </Box></Grid>
+      </Grid>
+    
+
     </Box>
+   
   );
 };
 

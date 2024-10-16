@@ -12,6 +12,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import dynamic from 'next/dynamic';
 import Footer from "@/components/Footer/Footer";
 import React from 'react';
+import GameSelection from "@/components/Banner/GameSelection";
+import LiveSportsCard from "@/components/Banner/LiveSportsCard";
+import LiveSportsSection from "@/components/Banner/LiveSportSelection";
 
 // Dynamic imports
 const SponsorshipSection = dynamic(() => import('@/components/Banner/SponsorshipSection'), { ssr: false });
@@ -60,7 +63,7 @@ export default async function Home() {
     <ThemeProvider theme={theme}>
       <ErrorBoundary>
         <Banner />
-        <ScrollingLogos />
+        <GameSelection/>
         <CasinoBanner
           title="Thousands of thrilling games."
           subText="Thousands of ways to win big."
@@ -84,6 +87,8 @@ export default async function Home() {
             { icon: <Replay />, title: 'Recent Play Bonuses', description: 'UP365 Games offers money back on losses every time you level up.' },
           ]}
         />
+            <ScrollingLogos />  
+            <LiveSportsSection/>
         <SponsorshipSection />
         <HelpSection />
         <BettingActionTable />

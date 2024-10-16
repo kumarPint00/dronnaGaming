@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     padding: '20px 0',
     position: 'relative',
-    margin: '20px auto'
+    margin: '20px auto',
+    height:'300px'
   },
   logosWrapper: {
     display: 'flex',
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
   },
   logoImage: {
-    height: (props) => (props.isMobile ? '30px' : '50px'),
+    height:'200px'
+    
   },
   '@keyframes scroll': {
     '0%': { transform: 'translateX(0)' },
